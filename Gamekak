@@ -1,0 +1,152 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local Key = Instance.new("ScreenGui")
+local yes = Instance.new("ImageLabel")
+local key = Instance.new("TextButton")
+local key_2 = Instance.new("TextButton")
+local input = Instance.new("TextBox")
+local UICorner = Instance.new("UICorner")
+local UICorner_2 = Instance.new("UICorner")
+local GetKey = Instance.new("ImageLabel")
+local key_3 = Instance.new("TextButton")
+local Exit = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+
+--Properties:
+
+Key.Name = "Key"
+Key.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Key.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+yes.Name = "yes"
+yes.Parent = Key
+yes.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+yes.Position = UDim2.new(0, 762, 0, 242)
+yes.Size = UDim2.new(0, 394, 0, 355)
+yes.Image = "rbxassetid://7341556792"
+
+key.Name = "key!"
+key.Parent = yes
+key.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+key.BackgroundTransparency = 1.000
+key.Position = UDim2.new(0.257637262, 0, 0.662785053, 0)
+key.Size = UDim2.new(0, 190, 0, 53)
+key.Font = Enum.Font.Code
+key.Text = "Enter Key!"
+key.TextColor3 = Color3.fromRGB(255, 0, 0)
+key.TextSize = 34.000
+key.TextTransparency = 0.010
+
+key_2.Name = "key!"
+key_2.Parent = yes
+key_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+key_2.BackgroundTransparency = 1.000
+key_2.Position = UDim2.new(0.257637262, 0, 0.825361729, 0)
+key_2.Size = UDim2.new(0, 190, 0, 53)
+key_2.Font = Enum.Font.Code
+key_2.Text = "Get Key!"
+key_2.TextColor3 = Color3.fromRGB(255, 0, 0)
+key_2.TextSize = 34.000
+key_2.TextTransparency = 0.010
+
+input.Name = "input"
+input.Parent = yes
+input.BackgroundColor3 = Color3.fromRGB(91, 255, 88)
+input.Position = UDim2.new(0.0583756305, 0, 0.236619741, 0)
+input.Size = UDim2.new(0, 347, 0, 73)
+input.Font = Enum.Font.SciFi
+input.Text = "Input Key!"
+input.TextColor3 = Color3.fromRGB(0, 0, 0)
+input.TextSize = 51.000
+
+UICorner.Parent = input
+
+UICorner_2.Parent = yes
+
+GetKey.Name = "GetKey"
+GetKey.Parent = Key
+GetKey.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GetKey.Position = UDim2.new(0, 761, 0, 242)
+GetKey.Size = UDim2.new(0, 394, 0, 355)
+GetKey.Visible = false
+GetKey.Image = "rbxassetid://7341556792"
+
+key_3.Name = "key!"
+key_3.Parent = GetKey
+key_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+key_3.BackgroundTransparency = 1.000
+key_3.Position = UDim2.new(0.257637262, 0, 0.423348427, 0)
+key_3.Size = UDim2.new(0, 190, 0, 53)
+key_3.Font = Enum.Font.Code
+key_3.Text = "Copy Link"
+key_3.TextColor3 = Color3.fromRGB(255, 0, 0)
+key_3.TextSize = 34.000
+key_3.TextTransparency = 0.010
+
+Exit.Name = "Exit"
+Exit.Parent = GetKey
+Exit.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Exit.BackgroundTransparency = 1.000
+Exit.Position = UDim2.new(0.257637262, 0, 0.825361729, 0)
+Exit.Size = UDim2.new(0, 190, 0, 53)
+Exit.Font = Enum.Font.Code
+Exit.Text = "Exit"
+Exit.TextColor3 = Color3.fromRGB(255, 0, 0)
+Exit.TextSize = 34.000
+Exit.TextTransparency = 0.010
+
+UICorner_3.Parent = GetKey
+
+-- Scripts:
+
+local function FOSO_fake_script() -- key.LocalScript 
+	local script = Instance.new('LocalScript', key)
+
+	local Key = game:GetService("Players").LocalPlayer.PlayerGui["Random_Key"].GetKey["key!"].Text
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		if script.Parent.Parent.input.Text == Key then
+			script.Parent.Parent.Parent.Parent.Key:Destroy()
+			wait(.1)
+			script.Parent.Parent.Parent.GetKey:Destroy()
+		else
+			game.Players.LocalPlayer:Kick("Wrong Key! Get New :3 UwU")
+		end
+	end)
+end
+coroutine.wrap(FOSO_fake_script)()
+local function IYOMRRD_fake_script() -- key_2.LocalScript 
+	local script = Instance.new('LocalScript', key_2)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.yes.Visible = false
+		wait(.2)
+		script.Parent.Parent.Parent.GetKey.Visible = true
+	end)
+end
+coroutine.wrap(IYOMRRD_fake_script)()
+local function CYRTX_fake_script() -- key_3.LocalScript 
+	local script = Instance.new('LocalScript', key_3)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		setclipboard("Hi")
+		wait(.2)
+		script.Parent.Text = "Copied Link"
+		wait(.2)
+		script.Parent.Text = 'Copy Link'
+	end)
+end
+coroutine.wrap(CYRTX_fake_script)()
+local function QMYEX_fake_script() -- Exit.LocalScript 
+	local script = Instance.new('LocalScript', Exit)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.GetKey.Visible = false
+		wait(.2)
+		script.Parent.Parent.Parent.yes.Visible = true
+	end)
+end
+coroutine.wrap(QMYEX_fake_script)()
