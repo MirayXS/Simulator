@@ -2174,15 +2174,15 @@ if newworld then
       pcall(function()
       game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
       if game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 5") then
-         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 5").CFrame*CFrame.new(0,40,0)
+         tweenteleoirtzz(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 5").CFrame*CFrame.new(0,40,10))
       elseif game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 4") then
-         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 4").CFrame*CFrame.new(0,40,0)
+         tweenteleoirtzz(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 4").CFrame*CFrame.new(0,40,10))
       elseif game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 3") then
-         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 3").CFrame*CFrame.new(0,40,0)
+         tweenteleoirtzz(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 3").CFrame*CFrame.new(0,40,10))
       elseif game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 2") then
-         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 2").CFrame*CFrame.new(0,40,0)
+         tweenteleoirtzz(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 2").CFrame*CFrame.new(0,40,10))
       elseif game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 1") then
-         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 1").CFrame*CFrame.new(0,40,0)
+         tweenteleoirtzz(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 1").CFrame*CFrame.new(0,40,10))
       end
       end)
    end
@@ -2232,12 +2232,12 @@ if ThreeWorld then
 end
 if newworld then
    Raid:CreateButton("Teleport to Lab",function()
-   game.Players.localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-6438.73535, 250.645355, -4501.50684)
+   tweenteleoirtzz(CFrame.new(-6438.73535, 250.645355, -4501.50684))
    end)
 end
 if ThreeWorld then
    Raid:CreateButton("Teleport to Lab",function()
-   game.Players.localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-5017.40869, 314.844055, -2823.0127, -0.925743818, 4.48217499e-08, -0.378151238, 4.55503146e-09, 1, 1.07377559e-07, 0.378151238, 9.7681621e-08, -0.925743818)
+   tweenteleoirtzz(CFrame.new(-5017.40869, 314.844055, -2823.0127, -0.925743818, 4.48217499e-08, -0.378151238, 4.55503146e-09, 1, 1.07377559e-07, 0.378151238, 9.7681621e-08, -0.925743818))
    end)
 end
 
@@ -2320,13 +2320,23 @@ while _G.RQIO do wait()
    for i, v in pairs(game:GetService("Workspace").Characters:GetChildren()) do
       if v.Name == dinoply then
           equipgun()
-         game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,50,0)
+          local magnitude = (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+          if magnitude < 1000 then
+         game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,30,0)
          v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
          local args = {
             [1] = game:GetService("Players"):FindFirstChild(v.Name).Character.HumanoidRootPart.Position,
             [2] = game:GetService("Players"):FindFirstChild(v.Name).Character.HumanoidRootPart
          }
          game:GetService("Players").LocalPlayer.Character[gunname()].RemoteFunctionShoot:InvokeServer(unpack(args))
+         else
+            local Distancex = (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
+            local Speexd = 150 -- ความเร็วของมึง
+            tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distancex/Speexd, Enum.EasingStyle.Linear)
+            tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = v.HumanoidRootPart.CFrame*CFrame.new(0,30,0)})
+            tweenx:Play()
+            wait(Distancex/Speexd)
+         end
       end
    end
    end)
@@ -2729,7 +2739,5 @@ while wait(.1) do
     end
    end)
 end
-
-
 
 return Dino
