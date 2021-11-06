@@ -2322,7 +2322,7 @@ while _G.RQIO do wait()
           equipgun()
           local magnitude = (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
           if magnitude < 1000 then
-         game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,30,0)
+         game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,50,0)
          v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
          local args = {
             [1] = game:GetService("Players"):FindFirstChild(v.Name).Character.HumanoidRootPart.Position,
@@ -2333,7 +2333,7 @@ while _G.RQIO do wait()
             local Distancex = (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
             local Speexd = 150 -- ความเร็วของมึง
             tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distancex/Speexd, Enum.EasingStyle.Linear)
-            tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = v.HumanoidRootPart.CFrame*CFrame.new(0,30,0)})
+            tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = v.HumanoidRootPart.CFrame*CFrame.new(0,50,0)})
             tweenx:Play()
             wait(Distancex/Speexd)
          end
