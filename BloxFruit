@@ -1597,7 +1597,12 @@ while _G.AutoFarm do game:GetService("RunService").Heartbeat:wait()
    end
       else
           CheckQuest()
-       tweenxd(100,NameMon)
+           local Distancex = (Vector3.new(CFrameQuest) - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
+        local Speexd = 150 -- ความเร็วของมึง
+        tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distancex/Speexd, Enum.EasingStyle.Linear)
+        tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrameQuest})
+        tweenx:Play()
+        wait(Distancex/Speexd)
      end
    end)
 end
