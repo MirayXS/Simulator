@@ -1878,7 +1878,7 @@ _G.AutoFarmAllBoss = value
 while _G.AutoFarmAllBoss do wait()
    pcall(function()
        itemequip(weapongg)
-   for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+   for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
       if string.find(v.Name , "Boss") then
          repeat wait()
              local magnitude = (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
