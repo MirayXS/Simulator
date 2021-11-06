@@ -133,27 +133,13 @@ function CheckQuest()
          NameMon = "Military Soldier"
          CFrameQuest = CFrame.new(-5316.55859, 12.2370615, 8517.2998, 0.588437557, -1.37880001e-08, -0.808542669, -2.10116209e-08, 1, -3.23446478e-08, 0.808542669, 3.60215964e-08, 0.588437557)
          CFrameMon = CFrame.new(-5363.01123, 41.5056877, 8548.47266, -0.578253984, -3.29503091e-10, 0.815856814, 9.11209668e-08, 1, 6.498761e-08, -0.815856814, 1.11920997e-07, -0.578253984)
-      elseif MyLevel == 300 or MyLevel <= 374 then -- Military Spy
+      elseif MyLevel == 300 or MyLevel <= 449 then -- Military Spy
          Ms = "Military Spy [Lv. 330]"
          NaemQuest = "MagmaQuest"
          LevelQuest = 2
          NameMon = "Military Spy"
          CFrameQuest = CFrame.new(-5316.55859, 12.2370615, 8517.2998, 0.588437557, -1.37880001e-08, -0.808542669, -2.10116209e-08, 1, -3.23446478e-08, 0.808542669, 3.60215964e-08, 0.588437557)
          CFrameMon = CFrame.new(-5787.99023, 120.864456, 8762.25293, -0.188358366, -1.84706277e-08, 0.982100308, -1.23782129e-07, 1, -4.93306951e-09, -0.982100308, -1.22495649e-07, -0.188358366)
-      elseif MyLevel == 375 or MyLevel <= 399 then -- Fishman Warrior
-         Ms = "Fishman Warrior [Lv. 375]"
-         NaemQuest = "FishmanQuest"
-         LevelQuest = 1
-         NameMon = "Fishman Warrior"
-         CFrameQuest = CFrame.new(61122.5625, 18.4716396, 1568.16504, 0.893533468, 3.95251609e-09, 0.448996574, -2.34327455e-08, 1, 3.78297464e-08, -0.448996574, -4.43233645e-08, 0.893533468)
-         CFrameMon = CFrame.new(60946.6094, 48.6735229, 1525.91687, -0.0817126185, 8.90751153e-08, 0.996655822, 2.00889794e-08, 1, -8.77269599e-08, -0.996655822, 1.28533992e-08, -0.0817126185)
-      elseif MyLevel == 400 or MyLevel <= 449 then -- Fishman Commando
-         Ms = "Fishman Commando [Lv. 400]"
-         NaemQuest = "FishmanQuest"
-         LevelQuest = 2
-         NameMon = "Fishman Commando"
-         CFrameQuest = CFrame.new(61122.5625, 18.4716396, 1568.16504, 0.893533468, 3.95251609e-09, 0.448996574, -2.34327455e-08, 1, 3.78297464e-08, -0.448996574, -4.43233645e-08, 0.893533468)
-         CFrameMon = CFrame.new(61885.5039, 18.4828243, 1504.17896, 0.577502489, 0, -0.816389024, -0, 1.00000012, -0, 0.816389024, 0, 0.577502489)
       elseif MyLevel == 450 or MyLevel <= 474 then -- God's Guards
          Ms = "God's Guard [Lv. 450]"
          NaemQuest = "SkyExp1Quest"
