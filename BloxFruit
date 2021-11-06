@@ -24,6 +24,8 @@ if OldWorld then
       end
    end
 end
+
+
 function CheckQuest()
    local MyLevel = game.Players.localPlayer.Data.Level.Value
    if OldWorld then
@@ -1447,11 +1449,10 @@ while _G.bringmob do wait()
                 if x.Name == Ms then
                     if y.Name == Ms then
                         x.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
-                        x.HumanoidRootPart.CanCollide = false
-                        y.HumanoidRootPart.CanCollide = false
                         y.HumanoidRootPart.Size = Vector3.new(40,40,40)
                         x.HumanoidRootPart.Size = Vector3.new(40,40,40)
                         y.HumanoidRootPart.Transparency = 0.99
+                        x.HumanoidRootPart.CanCollide = false
                         x.Humanoid:ChangeState(11)
                         y.Humanoid:ChangeState(11)
                         if sethiddenproperty then
@@ -1464,6 +1465,7 @@ while _G.bringmob do wait()
     end)
 end
 end)
+
 local DinoPage = DinoWindow:NewPage("AutoFarm")
 local Home = DinoPage:NewSection("AutoFarm Section")
 
@@ -1542,17 +1544,16 @@ while _G.AutoFarm do game:GetService("RunService").Heartbeat:wait()
                         repeat game:GetService("RunService").Heartbeat:wait()
                            click()
                            itemequip(weapongg)
-                           if OldWorld then
+                            v.Humanoid:ChangeState(11)
+                            MinHealth = v.Humanoid.MaxHealth * 50 / 100
+                           if v.Humanoid.Health > MinHealth then
+                              game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,0,15)
+                              else
                               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,15,0)
-                           elseif newworld then
-                              game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,15,0)
-                           elseif ThreeWorld then
-                              game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,15,15)
                            end
                            game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
                            v.HumanoidRootPart.Size = Vector3.new(40,40,40)
                            v.HumanoidRootPart.Transparency = 0.99
-                           v.HumanoidRootPart.CanCollide = false
                            v.Humanoid:ChangeState(11)
                            game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = false
                            v.Humanoid.WalkSpeed = 0
@@ -1768,6 +1769,8 @@ while _G.AutoFarmMasGun do wait()
             if string.find(game.Players.LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
                for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                   if v.Name == Ms then
+                     local magnitude = (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+                       if magnitude < 1000 then
                      if v.Humanoid.Health > 0 then
                         repeat wait()
                            equipgun()
@@ -1792,8 +1795,17 @@ while _G.AutoFarmMasGun do wait()
                      elseif v.Humanoid.Health <= 1 then
                         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
                      end
+                                   else
+                  CheckQuest()
+                local Distancex = (game.Workspace[NameMon].Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
+                local Speexd = 150 -- ความเร็วของมึง
+                tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distancex/Speexd, Enum.EasingStyle.Linear)
+                tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = game.Workspace[NameMon].CFrame})
+                tweenx:Play()
+                wait(Distancex/Speexd)
                   end
-               end
+                       end
+           end
             else
                CheckQuest()
 
@@ -1853,8 +1865,8 @@ _G.AutoFarmAllBoss = value
 while _G.AutoFarmAllBoss do wait()
    pcall(function()
        itemequip(weapongg)
-   for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
-      if string.find(v.Name , "Boss") then
+   for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+      if string.find(v.Name , "Soul Reaper") then
          repeat wait()
              local magnitude = (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
              if magnitude < 1000 then
@@ -2726,7 +2738,7 @@ while wait(.1) do
    if _G.AutoFarmMasGun then
       game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
    end
-    if _G.AutoFarm then
+    if _G.AutoFarm or _G.AutoFarmMasGun then
         pcall(function()
             CheckQuest()
         if not game.Workspace:FindFirstChild(NameMon) then
