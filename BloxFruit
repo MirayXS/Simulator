@@ -378,20 +378,20 @@ function CheckQuest()
          NameMon = "Dragon Crew Warrior"
          CFrameQuest = CFrame.new(5832.83594, 51.6806107, -1101.51563, 0.898790359, -0, -0.438378751, 0, 1, -0, 0.438378751, 0, 0.898790359)
          CFrameMon = CFrame.new(6241.9951171875, 51.522083282471, -1243.9771728516)
-      elseif MyLevel >= 1600 and MyLevel <= 1624 then
+[[--      elseif MyLevel >= 1600 and MyLevel <= 1624 then
          Ms = "Dragon Crew Archer [Lv. 1600]"
          NaemQuest = "AmazonQuest"
          LevelQuest = 2
          NameMon = "Dragon Crew Archer"
          CFrameQuest = CFrame.new(5832.83594, 51.6806107, -1101.51563, 0.898790359, -0, -0.438378751, 0, 1, -0, 0.438378751, 0, 0.898790359)
-         CFrameMon = CFrame.new(6488.9155273438, 383.38375854492, -110.66246032715)
-      elseif MyLevel >= 1625 and MyLevel <= 1649 then
+         CFrameMon = CFrame.new(6488.9155273438, 383.38375854492, -110.66246032715)   --]]
+    [[-- elseif MyLevel >= 1625 and MyLevel <= 1649 then
          Ms = "Female Islander [Lv. 1625]"
          NaemQuest = "AmazonQuest2"
          LevelQuest = 1
          NameMon = "Female Islander"
          CFrameQuest = CFrame.new(5448.86133, 601.516174, 751.130676, 0, 0, 1, 0, 1, -0, -1, 0, 0)
-         CFrameMon = CFrame.new(5825.2241210938, 682.89245605469, 704.57958984375)
+         CFrameMon = CFrame.new(5825.2241210938, 682.89245605469, 704.57958984375) --]]
       elseif MyLevel >= 1650 and MyLevel <= 1699 then
          Ms = "Giant Islander [Lv. 1650]"
          NaemQuest = "AmazonQuest2"
@@ -1580,7 +1580,7 @@ while _G.AutoFarm do game:GetService("RunService").Heartbeat:wait()
                CheckQuest()
                magnitude = (workspace[NameMon].Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameQuest
-               wait(1)
+               wait(3)
 
                local args = {
                   [1] = "StartQuest",
@@ -1604,7 +1604,13 @@ while _G.AutoFarm do game:GetService("RunService").Heartbeat:wait()
         tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrameQuest})
         tweenx:Play()
         wait(Distancex/Speexd)
-                
+                       local args = {
+                  [1] = "StartQuest",
+                  [2] = NaemQuest,
+                  [3] = LevelQuest
+               }
+
+               game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
      end
    end)
 end
