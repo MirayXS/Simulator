@@ -2387,7 +2387,12 @@ game:GetService("RunService").Heartbeat:Connect(function()
     if _G.AutoFarm or _G.NoClip then
         game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
     end
-    
+     if _G.FastAttack then
+            require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework).activeController.timeToNextAttack = 0
+            game:GetService'VirtualUser':CaptureController()
+            game:GetService'VirtualUser':Button1Down(Vector2.new(851, 158))
+            require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework.CameraShaker).CameraShakeInstance.CameraShakeState = {FadingIn = 3,FadingOut =  2,Sustained = 0,Inactive = 1}
+        end
     end)
 end)
 
@@ -2772,14 +2777,5 @@ while wait(.1) do
     end
    end)
 end
-
-    game:GetService("RunService").Heartbeat:Connect(function()
-        if _G.FastAttack then
-            require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework).activeController.timeToNextAttack = 0
-            game:GetService'VirtualUser':CaptureController()
-            game:GetService'VirtualUser':Button1Down(Vector2.new(851, 158))
-            require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework.CameraShaker).CameraShakeInstance.CameraShakeState = {FadingIn = 3,FadingOut =  2,Sustained = 0,Inactive = 1}
-        end
-    end)
     
 return Dino
