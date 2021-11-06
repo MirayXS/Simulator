@@ -377,20 +377,20 @@ function CheckQuest()
          NameMon = "Dragon Crew Warrior"
          CFrameQuest = CFrame.new(5832.83594, 51.6806107, -1101.51563, 0.898790359, -0, -0.438378751, 0, 1, -0, 0.438378751, 0, 0.898790359)
          CFrameMon = CFrame.new(6241.9951171875, 51.522083282471, -1243.9771728516)
-[[-- elseif MyLevel >= 1600 and MyLevel <= 1624 then
+    elseif MyLevel >= 1600 and MyLevel <= 1624 then
          Ms = "Dragon Crew Archer [Lv. 1600]"
          NaemQuest = "AmazonQuest"
          LevelQuest = 2
          NameMon = "Dragon Crew Archer"
          CFrameQuest = CFrame.new(5832.83594, 51.6806107, -1101.51563, 0.898790359, -0, -0.438378751, 0, 1, -0, 0.438378751, 0, 0.898790359)
-         CFrameMon = CFrame.new(6488.9155273438, 383.38375854492, -110.66246032715)   --]]
-    [[-- elseif MyLevel >= 1625 and MyLevel <= 1649 then
+         CFrameMon = CFrame.new(6488.9155273438, 383.38375854492, -110.66246032715)  
+    elseif MyLevel >= 1625 and MyLevel <= 1649 then
          Ms = "Female Islander [Lv. 1625]"
          NaemQuest = "AmazonQuest2"
          LevelQuest = 1
          NameMon = "Female Islander"
          CFrameQuest = CFrame.new(5448.86133, 601.516174, 751.130676, 0, 0, 1, 0, 1, -0, -1, 0, 0)
-         CFrameMon = CFrame.new(5825.2241210938, 682.89245605469, 704.57958984375) --]]
+         CFrameMon = CFrame.new(5825.2241210938, 682.89245605469, 704.57958984375) 
       elseif MyLevel >= 1650 and MyLevel <= 1699 then
          Ms = "Giant Islander [Lv. 1650]"
          NaemQuest = "AmazonQuest2"
@@ -454,37 +454,37 @@ function CheckQuest()
          NameMon = "Musketeer Pirate"
          CFrameQuest = CFrame.new(-12680.3818, 389.971039, -9902.01953, -0.0871315002, 0, 0.996196866, 0, 1, 0, -0.996196866, 0, -0.0871315002)
          CFrameMon = CFrame.new(-13282.3046875, 496.23684692383, -9565.150390625)
-         elseif MyLevel == 1975 or MyLevel < 2000 then
+         elseif MyLevel == 1975 or MyLevel <= 1999 then
             Ms = "Reborn Skeleton [Lv. 1975]"
             NaemQuest = "HauntedQuest1"
             LevelQuest = 1
             Reward = "Reward:\n$13,000\n73,000,000 Exp."
-            CFrameQuest = CFrame.new(-9480.80762, 142.130661, 5566.37305, -0.00655503059)
-            CFrameMon = CFrame.new(-8761.77148, 183.431747, 6168.33301)
+            CFrameQuest = CFrame.new(-9480.80762, 142.130661, 5566.37305, -0.00655503059, 4.52954225e-08, -0.999978542, 2.04920472e-08, 1, 4.51620679e-08, 0.999978542, -2.01955679e-08, -0.00655503059)
+            CFrameMon = CFrame.new(-8761.77148, 183.431747, 6168.33301, 0.978073597, -1.3950732e-05, -0.208259016, -1.08073925e-06, 1, -7.20630269e-05, 0.208259016, 7.07080399e-05, 0.978073597)
         elseif MyLevel == 2000 or MyLevel <= 2024 then
             Ms = "Living Zombie [Lv. 2000]"
             NaemQuest = "HauntedQuest1"
             LevelQuest = 2
             NameMon = "Living Zombie"
             Reward = "Reward:\n$13,250\n75,500,000 Exp."
-            CFrameQuest = CFrame.new(-9480.80762, 142.130661, 5566.37305, -0.00655503059)
-            CFrameMon = CFrame.new(-10103.7529, 238.565979, 6179.75977, 0.999474227)
+            CFrameQuest = CFrame.new(-9480.80762, 142.130661, 5566.37305, -0.00655503059, 4.52954225e-08, -0.999978542, 2.04920472e-08, 1, 4.51620679e-08, 0.999978542, -2.01955679e-08, -0.00655503059)
+            CFrameMon = CFrame.new(-10103.7529, 238.565979, 6179.75977, 0.999474227, 2.77547141e-08, 0.0324240364, -2.58006327e-08, 1, -6.06848474e-08, -0.0324240364, 5.98163865e-08, 0.999474227)
         elseif MyLevel == 2025 or MyLevel <= 2049 then
             Ms = "Demonic Soul [Lv. 2025]"
             NaemQuest = "HauntedQuest2"
             LevelQuest = 1
             NameMon = "Demonic Soul"
             Reward = "Reward:\n$13,500\n78,000,000 Exp."
-            CFrameQuest = CFrame.new(-9515.39551, 172.266037, 6078.89746, 0.0121199936)
-            CFrameMon = CFrame.new(-9709.30762, 204.695892, 6044.04688, -0.845798075)
+            CFrameQuest = CFrame.new(-9515.39551, 172.266037, 6078.89746, 0.0121199936, -9.78649624e-08, 0.999926567, 2.30358754e-08, 1, 9.75929382e-08, -0.999926567, 2.18513581e-08, 0.0121199936)
+            CFrameMon = CFrame.new(-9709.30762, 204.695892, 6044.04688, -0.845798075, -3.4587876e-07, -0.533503294, -4.46235369e-08, 1, -5.77571257e-07, 0.533503294, -4.64701827e-07, -0.845798075)
         elseif MyLevel >= 2050 then
             Ms = "Posessed Mummy [Lv. 2050]"
             NaemQuest = "HauntedQuest2"
             LevelQuest = 2
             NameMon = "Posessed Mummy"
             Reward = "Reward:\n$13,750\n80,500,000 Exp."
-            CFrameQuest = CFrame.new(-9515.39551, 172.266037, 6078.89746, 0.0121199936)
-            CFrameMon = CFrame.new(-9554.11035, 65.6141663, 6041.73584, -0.877069294)
+            CFrameQuest = CFrame.new(-9515.39551, 172.266037, 6078.89746, 0.0121199936, -9.78649624e-08, 0.999926567, 2.30358754e-08, 1, 9.75929382e-08, -0.999926567, 2.18513581e-08, 0.0121199936)
+            CFrameMon = CFrame.new(-9554.11035, 65.6141663, 6041.73584, -0.877069294, 5.33355795e-08, -0.480364174, 2.06420765e-08, 1, 7.33423562e-08, 0.480364174, 5.44105987e-08, -0.877069294)
       end
    end
 end
@@ -2385,9 +2385,9 @@ game:GetService("RunService").Heartbeat:Connect(function()
     pcall(function()
      if _G.FastAttack then
             require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework).activeController.timeToNextAttack = 0
+            require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework.CameraShaker).CameraShakeInstance.CameraShakeState = {FadingIn = 3,FadingOut =  2,Sustained = 0,Inactive = 1}
             game:GetService'VirtualUser':CaptureController()
             game:GetService'VirtualUser':Button1Down(Vector2.new(851, 158))
-            require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework.CameraShaker).CameraShakeInstance.CameraShakeState = {FadingIn = 3,FadingOut =  2,Sustained = 0,Inactive = 1}
      end
     end)
  end)
