@@ -1431,9 +1431,9 @@ TeleportService:Teleport(level1Id, player)
 end)
 Home:CreateLabel("Thx for Donate :)")
 Home:CreateLabel("-------------------------------------")
-Home:CreateLabel("Tutorial : First Must Click Debug Wait 20 Sec For Auto Farm :) Z")
 Home:CreateLabel("Credit Dev : NAYPRAMX#0562")
 Home:CreateLabel("Credit Ui Maker : Sanda#9197")
+Home:CreateLabel("Discord Url : https://discord.gg/AQZTyTZNYs")
 Home:CreateLabel("Thx for Using Dino Hub")
 
 Home:CreateLabel("PC Features")
@@ -1856,6 +1856,8 @@ while _G.AutoFarmAllBoss do wait()
    for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
       if string.find(v.Name , "Boss") then
          repeat wait()
+             local magnitude = (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+             if magnitude < 1000 then
             itemequip(weapongg)
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,15,8)
             v.HumanoidRootPart.Size = Vector3.new(40,40,40)
@@ -1864,9 +1866,17 @@ while _G.AutoFarmAllBoss do wait()
             v.Humanoid.WalkSpeed = 0
             v.Humanoid:ChangeState(11)
             click()
-         until v.Humanoid.Health <= 0 or _G.AutoFarmAllBoss == false
+            else
+            local Distancex = (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
+            local Speexd = 150 -- ความเร็วของมึง
+            tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distancex/Speexd, Enum.EasingStyle.Linear)
+            tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = v.HumanoidRootPart.CFrame*CFrame.new(0,30,0)})
+            tweenx:Play()
+            wait(Distancex/Speexd)
+            end
+             until v.Humanoid.Health <= 0 or _G.AutoFarmAllBoss == false
+       end
       end
-   end
    end)
 end
 end)
@@ -2322,7 +2332,7 @@ while _G.RQIO do wait()
           equipgun()
           local magnitude = (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
           if magnitude < 1000 then
-         game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,50,0)
+         game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,30,0)
          v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
          local args = {
             [1] = game:GetService("Players"):FindFirstChild(v.Name).Character.HumanoidRootPart.Position,
@@ -2333,7 +2343,7 @@ while _G.RQIO do wait()
             local Distancex = (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
             local Speexd = 150 -- ความเร็วของมึง
             tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distancex/Speexd, Enum.EasingStyle.Linear)
-            tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = v.HumanoidRootPart.CFrame*CFrame.new(0,50,0)})
+            tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = v.HumanoidRootPart.CFrame*CFrame.new(0,30,0)})
             tweenx:Play()
             wait(Distancex/Speexd)
          end
@@ -2344,7 +2354,7 @@ end
 end)
 
 game:GetService("RunService").Heartbeat:Connect(function()
-if _G.RQIO == true then
+if _G.RQIO == true or _G.AutoFarmAllBoss == true then
    game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 end
 end)
