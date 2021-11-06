@@ -1893,7 +1893,7 @@ while _G.AutoFarmAllBoss do wait()
             click()
             else
             local Distancex = (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
-            local Speexd = 150 -- ความเร็วของมึง
+            local Speexd = 90 -- ความเร็วของมึง
             tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distancex/Speexd, Enum.EasingStyle.Linear)
             tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = v.HumanoidRootPart.CFrame*CFrame.new(0,30,0)})
             tweenx:Play()
