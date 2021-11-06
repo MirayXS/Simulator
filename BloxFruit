@@ -1,16 +1,16 @@
 local OldWorld = false
-local newworld = false
+local Sea2 = false
 local ThreeWorld = false
 local placeId = game.PlaceId
 if placeId == 2753915549 then
    OldWorld = true
 elseif placeId == 4442272183 then
-   newworld = true
+   Sea2 = true
 elseif placeId == 7449423635 then
    ThreeWorld = true
 end
 
-if newworld then
+if Sea2 then
    for i,v in pairs(game:GetService("ReplicatedStorage"):GetDescendants()) do
       if v.Name == "DarkBlade" then
          v.Parent.Name = "NoobRip"
@@ -24,7 +24,6 @@ if OldWorld then
       end
    end
 end
-
 
 function CheckQuest()
    local MyLevel = game.Players.localPlayer.Data.Level.Value
@@ -199,7 +198,7 @@ function CheckQuest()
          CFrameMon = CFrame.new(5658.5752, 38.5361786, 4928.93506, -0.996873081, 2.12391046e-06, -0.0790185928, 2.16989656e-06, 1, -4.96097414e-07, 0.0790185928, -6.66008248e-07, -0.996873081)
       end
    end
-   if newworld then
+   if Sea2 then
       if MyLevel == 700 or MyLevel <= 724 then -- Raider [Lv. 700]
          Ms = "Raider [Lv. 700]"
          NaemQuest = "Area1Quest"
@@ -270,7 +269,7 @@ function CheckQuest()
          NameMon = "Winter Warrior"
          CFrameQuest = CFrame.new(604.964966, 401.457062, -5371.69287, 0.353063971, 1.89520435e-08, -0.935599446, -5.81846002e-08, 1, -1.70033754e-09, 0.935599446, 5.50377841e-08, 0.353063971)
          CFrameMon = CFrame.new(1223.7417, 454.575226, -5170.02148, 0.473996818, 2.56845354e-08, 0.880526543, -5.62456428e-08, 1, 1.10811016e-09, -0.880526543, -5.00510211e-08, 0.473996818)
- [[--     elseif MyLevel == 1100 or MyLevel <= 1124 then -- Lab Subordinate [Lv. 1100]
+       elseif MyLevel == 1100 or MyLevel <= 1124 then -- Lab Subordinate [Lv. 1100]
          Ms = "Lab Subordinate [Lv. 1100]"
          NaemQuest = "IceSideQuest"
          LevelQuest = 1
@@ -378,7 +377,7 @@ function CheckQuest()
          NameMon = "Dragon Crew Warrior"
          CFrameQuest = CFrame.new(5832.83594, 51.6806107, -1101.51563, 0.898790359, -0, -0.438378751, 0, 1, -0, 0.438378751, 0, 0.898790359)
          CFrameMon = CFrame.new(6241.9951171875, 51.522083282471, -1243.9771728516)
-[[--      elseif MyLevel >= 1600 and MyLevel <= 1624 then
+[[-- elseif MyLevel >= 1600 and MyLevel <= 1624 then
          Ms = "Dragon Crew Archer [Lv. 1600]"
          NaemQuest = "AmazonQuest"
          LevelQuest = 2
@@ -1580,7 +1579,7 @@ while _G.AutoFarm do game:GetService("RunService").Heartbeat:wait()
                CheckQuest()
                magnitude = (workspace[NameMon].Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameQuest
-               wait(1)
+               wait(3)
 
                local args = {
                   [1] = "StartQuest",
@@ -1599,18 +1598,11 @@ while _G.AutoFarm do game:GetService("RunService").Heartbeat:wait()
       else
           CheckQuest()
            local Distancex = (Vector3.new(CFrameQuest) - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
-        local Speexd = 86 -- ความเร็วของมึง
+        local Speexd = 80 -- ความเร็วของมึง
         tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distancex/Speexd, Enum.EasingStyle.Linear)
         tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrameQuest})
         tweenx:Play()
         wait(Distancex/Speexd)
-                       local args = {
-                  [1] = "StartQuest",
-                  [2] = NaemQuest,
-                  [3] = LevelQuest
-               }
-
-               game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
      end
    end)
 end
@@ -1681,7 +1673,7 @@ while _G.AutoFarmMas do wait()
                            click()
                            if OldWorld then
                               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,15,0)
-                           elseif newworld then
+                           elseif Sea2 then
                               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,15,0)
                            elseif ThreeWorld then
                               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,0,15)
@@ -1734,6 +1726,7 @@ while _G.AutoFarmMas do wait()
                         until v.Humanoid.Health <= 0 or _G.AutoFarmMas == false
                      elseif v.Humanoid.Health <= 1 then
                         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
+                        
                      end
                   end
                end
@@ -1811,7 +1804,7 @@ while _G.AutoFarmMasGun do wait()
                                    else
                   CheckQuest()
                 local Distancex = (game.Workspace[NameMon].Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
-                local Speexd = 150 -- ความเร็วของมึง
+                local Speexd = 100 -- ความเร็วของมึง
                 tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distancex/Speexd, Enum.EasingStyle.Linear)
                 tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = game.Workspace[NameMon].CFrame})
                 tweenx:Play()
@@ -2052,16 +2045,13 @@ if OldWorld then
      tweenteleoirtzz(CFrame.new(-2850.20068, 7.39224768, 5354.99268))
    end)
 end
-if newworld then
+if Sea2 then
    Teleport:CreateButton("Dock",function()
      tweenteleoirtzz(CFrame.new(82.9490662, 18.0710983, 2834.98779))
    end)
    Teleport:CreateButton("Kingdom of Rose",function()
      tweenteleoirtzz(CFrame.new(-394.983521, 118.503128, 1245.8446))
    end)
-   [[ -- Teleport:CreateButton("Dark Arena",function()
-   tweenteleport(111,game.Workspace["_WorldOrigin"].Locations["Dark Arena"].CFrame)
-   end) -- ]]
    Teleport:CreateButton("Mansion",function()
      tweenteleoirtzz(CFrame.new(-390.096313, 331.886475, 673.464966))
    end)
@@ -2156,7 +2146,7 @@ while _G.killaurxaxx do wait()
 end
 end)
 
-if newworld then
+if Sea2 then
    Raid:CreateLabel("Description Raid Function !")
 
    Raid:CreateToggle(" Auto Raid [ Raid ] [ Beta ] ",function(value)
@@ -2265,7 +2255,7 @@ if ThreeWorld then
    _G.NextIsland = value
    end)
 end
-if newworld then
+if Sea2 then
    Raid:CreateButton("Teleport to Lab",function()
    tweenteleoirtzz(CFrame.new(-6438.73535, 250.645355, -4501.50684))
    end)
