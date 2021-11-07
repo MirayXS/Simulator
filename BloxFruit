@@ -1921,7 +1921,22 @@ end)
 Main2:CreateToggle("Auto Buy Haki Color",function(value)
 _G.BuyHakiColorsDealer = value
 end)
+Main2:CreateToggle("Auto Buy Random Bone",function(value)
+_G.AutoBuyRandombone = value
 
+while _G.AutoBuyRandombone do wait()
+    pcall(function()
+    local args = {
+    [1] = "Bones",
+    [2] = "Buy",
+    [3] = 1,
+    [4] = 1
+}
+
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+end
+end)
 local DinoPage = DinoWindow:NewPage("Auto-Stats")
 local AutoStats = DinoPage:NewSection("Auto Stats Section")
 AutoStats:CreateLabel("Description","IF SCRIPT HAVE BUG CONTACT DISCORD NAYPRAMX#0562")
@@ -2357,6 +2372,8 @@ end)
 
 local updlog = DinoWindow:NewPage("Update-Log")
 local Home = updlog:NewSection("UpdateLog Section")
+Home:CreateLabel("Updated Dino Hub V0.895")
+Home:CreateLabel("Added [ + ] Auto Buy Random Bone")
 Home:CreateLabel("Updated Dino Hub V0.894")
 Home:CreateLabel("Fixed [ ~ ] Auto Elite Hunter\nAdded [ + ] Update-Log Tab")
 Home:CreateLabel("Updated Dino Hub V0.893")
