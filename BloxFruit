@@ -1937,6 +1937,56 @@ game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 end)
 end
 end)
+
+local fruitname = {
+    "Spike-Spike",
+    "Chop-Chop",
+    "Spring-Spring",
+    "Smoke-Smoke",
+    "Flame-Flame",
+    "Ice-Ice",
+    "Sand-Sand",
+    "Dark-Dark",
+    "Light-Light",
+    "Rubber-Rubber",
+    "Barrier-Barrier",
+    "Magma-Magma",
+    "Quake-Quake",
+    "Human-Human: Buddha",
+    "String-String",
+    "Bird-Bird: Phoenix",
+    "Rumble-Rumble",
+    "Paw-Paw",
+    "Gravity-Gravity",
+     "Dough-Dough",
+     "Control-Control",
+     "Dragon-Dragon",
+     "Kilo-Kilo",
+     "Spin-Spin",
+     "Bird-Bird: Falcon",
+     "Diamond-Diamond",
+     "Love-Love",
+     "Door-Door",
+     "Venon-Venon",
+     "Revive-Revive",
+     "Shadow-Shadow"
+}
+
+Main2:CreateToggle("Auto Store Fruit All",function(value)
+_G.AutoStoreFruitAll = value
+while _G.AutoStoreFruitAll do wait()
+    pcall(function()
+        for i,fruitnamex in pairs(fruitname) do
+        local args = {
+            [1] = "StoreFruit",
+            [2] = tostring(fruitnamex)
+        }
+        
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+        end
+    end)
+end
+end)
 local DinoPage = DinoWindow:NewPage("Auto-Stats")
 local AutoStats = DinoPage:NewSection("Auto Stats Section")
 AutoStats:CreateLabel("Description","IF SCRIPT HAVE BUG CONTACT DISCORD NAYPRAMX#0562")
@@ -2372,17 +2422,19 @@ end)
 
 local updlog = DinoWindow:NewPage("Update-Log")
 local Home = updlog:NewSection("UpdateLog Section")
+Home:CreateLabel("Updated Dino Hub V0.896 : 11/7/2021") 
+Home:CreateLabel("Added [ + ] Auto Store Fruit All")
 Home:CreateLabel("Updated Dino Hub V0.895")
-Home:CreateLabel("Added [ + ] Auto Buy Random Bone")
-Home:CreateLabel("Updated Dino Hub V0.894")
+Home:CreateLabel("Added [ + ] Auto Buy Random Bone : 11/7/2021")
+Home:CreateLabel("Updated Dino Hub V0.894 : 11/7/2021")
 Home:CreateLabel("Fixed [ ~ ] Auto Elite Hunter\nAdded [ + ] Update-Log Tab")
-Home:CreateLabel("Updated Dino Hub V0.893")
+Home:CreateLabel("Updated Dino Hub V0.893 : 11/6/2021")
 Home:CreateLabel("Added [ + ] Fast Attack [ PC Only ]")
-Home:CreateLabel("Updated Dino Hub V0.892")
+Home:CreateLabel("Updated Dino Hub V0.892 : 11/6/2021")
 Home:CreateLabel("Fixed [ ~ ] Auto Farm + Smooth")
-Home:CreateLabel("Updated Dino Hub V0.891")
+Home:CreateLabel("Updated Dino Hub V0.891 : 11/6/2021")
 Home:CreateLabel("Fixed [ ~ ] AutoFarm Sea 2 \nFixed [ ~ ] Teleport Sea 2")
-Home:CreateLabel("Updated Dino Hub V0.89")
+Home:CreateLabel("Updated Dino Hub V0.89 : 11/6/2021")
 Home:CreateLabel("Fixed [ ~ ] Auto Farm All Boss")
 
 game:GetService("RunService").Heartbeat:Connect(function()
