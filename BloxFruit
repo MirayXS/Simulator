@@ -2355,6 +2355,19 @@ while _G.RQIO do wait()
 end
 end)
 
+local updlog = DinoWindow:NewPage("Update-Log")
+local Home = updlog:NewSection("UpdateLog Section")
+Home:CreateLabel("Updated Dino Hub V0.894")
+Home:CreateLabel("Fixed [ ~ ] Auto Elite Hunter\nAdded [ + ] Update-Log Tab")
+Home:CreateLabel("Updated Dino Hub V0.893")
+Home:CreateLabel("Added [ + ] Fast Attack [ PC Only ]")
+Home:CreateLabel("Updated Dino Hub V0.892")
+Home:CreateLabel("Fixed [ ~ ] Auto Farm + Smooth")
+Home:CreateLabel("Updated Dino Hub V0.891")
+Home:CreateLabel("Fixed [ ~ ] AutoFarm Sea 2 \nFixed [ ~ ] Teleport Sea 2")
+Home:CreateLabel("Updated Dino Hub V0.89")
+Home:CreateLabel("Fixed [ ~ ] Auto Farm All Boss")
+
 game:GetService("RunService").Heartbeat:Connect(function()
 if _G.RQIO == true or _G.AutoFarmAllBoss == true then
    game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
