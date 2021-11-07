@@ -2373,7 +2373,7 @@ game:GetService("RunService").Heartbeat:Connect(function()
     
 game:GetService("RunService").Heartbeat:Connect(function()
     pcall(function()
-    if _G.AutoFarm or _G.NoClip then
+    if _G.AutoFarm or _G.NoClip or _G.elitehunt or _G.Electro then
         game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
     end
     end)
@@ -2595,9 +2595,18 @@ while wait(.1) do
                   }
                   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
                   wait(2)
-                  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-12550.532226563, 336.22631835938, -7510.4233398438)
-                  wait(1)
-                  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-10371.4717, 330.764496, -10131.4199, -0.804111481, 0, -0.594478488, 0, 1, 0, 0.594478488, 0, -0.804111481)
+                    local Distancex = (Vector3.new(CFrame.new(-12550.532226563, 336.22631835938, -7510.4233398438)) - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
+                    local Speexd = 100 -- ความเร็วของมึง
+                    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distancex/Speexd, Enum.EasingStyle.Linear)
+                    tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-12550.532226563, 336.22631835938, -7510.4233398438)})
+                    tweenx:Play()
+                    wait(Distancex/Speexd)
+                    local Distancex = (Vector3.new(CFrame.new(-10371.4717, 330.764496, -10131.4199, -0.804111481, 0, -0.594478488, 0, 1, 0, 0.594478488, 0, -0.804111481)) - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
+                    local Speexd = 100 -- ความเร็วของมึง
+                    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distancex/Speexd, Enum.EasingStyle.Linear)
+                    tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-10371.4717, 330.764496, -10131.4199, -0.804111481, 0, -0.594478488, 0, 1, 0, 0.594478488, 0, -0.804111481)})
+                    tweenx:Play()
+                    wait(Distancex/Speexd)
                   local args = {
                      [1] = "BuyElectricClaw"
                   }
@@ -2629,11 +2638,18 @@ while wait(.1) do
 
    if  _G.elitehunt then
       if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-5418.892578125, 313.74130249023, -2826.2260742188)
+        local Distancex = (Vector3.new(CFrame.new(-5418.892578125, 313.74130249023, -2826.2260742188)) - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
+         local Speexd = 100 -- ความเร็วของมึง
+         tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distancex/Speexd, Enum.EasingStyle.Linear)
+         tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-5418.892578125, 313.74130249023, -2826.2260742188)})
+         tweenx:Play()
+         wait(Distancex/Speexd)
          wait(.5)
          game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter")
       else
          if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text == "Defeat  Diablo (0/1)" then
+          local magnitudez = (game:GetService("ReplicatedStorage")["Diablo [Lv. 1750]"].HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+           if magnitudez < 1000 then
             if game:GetService("Workspace").Enemies:FindFirstChild("Diablo [Lv. 1750]") then
                for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                   if v.Name == "Diablo [Lv. 1750]" then
@@ -2649,9 +2665,24 @@ while wait(.1) do
                   end
                end
             else
-               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("ReplicatedStorage")["Diablo [Lv. 1750]"].HumanoidRootPart.CFrame *CFrame.new(0,0,15)
+         local Distancex = (game:GetService("ReplicatedStorage")["Diablo [Lv. 1750]"].HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
+         local Speexd = 100 -- ความเร็วของมึง
+         tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distancex/Speexd, Enum.EasingStyle.Linear)
+         tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = game:GetService("ReplicatedStorage")["Diablo [Lv. 1750]"].HumanoidRootPart.CFrame})
+         tweenx:Play()
+         wait(Distancex/Speexd)
             end
+            else
+        local Distancex = (game:GetService("ReplicatedStorage")["Diablo [Lv. 1750]"].HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
+         local Speexd = 100 -- ความเร็วของมึง
+         tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distancex/Speexd, Enum.EasingStyle.Linear)
+         tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = game:GetService("ReplicatedStorage")["Diablo [Lv. 1750]"].HumanoidRootPart.CFrame})
+         tweenx:Play()
+         wait(Distancex/Speexd)
+           end
          elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text == "Defeat  Deandre (0/1)" then
+             local magnitudez = (game:GetService("ReplicatedStorage")["Deandre [Lv. 1750]"].HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+           if magnitudez < 1000 then
             if game:GetService("Workspace").Enemies:FindFirstChild("Deandre [Lv. 1750]") then
                for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                   if v.Name == "Deandre [Lv. 1750]" then
@@ -2668,9 +2699,24 @@ while wait(.1) do
                   end
                end
             else
-               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("ReplicatedStorage")["Deandre [Lv. 1750]"].HumanoidRootPart.CFrame *CFrame.new(0,0,15)
+             local Distancex = (game:GetService("ReplicatedStorage")["Deandre [Lv. 1750]"].HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
+             local Speexd = 100 -- ความเร็วของมึง
+             tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distancex/Speexd, Enum.EasingStyle.Linear)
+             tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = game:GetService("ReplicatedStorage")["Deandre [Lv. 1750]"].HumanoidRootPart.CFrame})
+             tweenx:Play()
+             wait(Distancex/Speexd)
+            end
+           else
+            local Distancex = (game:GetService("ReplicatedStorage")["Deandre [Lv. 1750]"].HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
+             local Speexd = 100 -- ความเร็วของมึง
+             tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distancex/Speexd, Enum.EasingStyle.Linear)
+             tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = game:GetService("ReplicatedStorage")["Deandre [Lv. 1750]"].HumanoidRootPart.CFrame})
+             tweenx:Play()
+             wait(Distancex/Speexd)
             end
          elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text == "Defeat  Urban (0/1)" then
+                          local magnitudez = (game:GetService("ReplicatedStorage")["Urban [Lv. 1750]"].HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+           if magnitudez < 1000 then
             if game:GetService("Workspace").Enemies:FindFirstChild("Urban [Lv. 1750]") then
                for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                   if v.Name == "Urban [Lv. 1750]" then
@@ -2687,7 +2733,20 @@ while wait(.1) do
                   end
                end
             else
-               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("ReplicatedStorage")["Urban [Lv. 1750]"].HumanoidRootPart.CFrame *CFrame.new(0,0,15)
+             local Distancex = (game:GetService("ReplicatedStorage")["Urban [Lv. 1750]"].HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
+             local Speexd = 100 -- ความเร็วของมึง
+             tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distancex/Speexd, Enum.EasingStyle.Linear)
+             tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = game:GetService("ReplicatedStorage")["Urban [Lv. 1750]"].HumanoidRootPart.CFrame})
+             tweenx:Play()
+             wait(Distancex/Speexd)
+            end
+           else
+            local Distancex = (game:GetService("ReplicatedStorage")["Deandre [Lv. 1750]"].HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
+             local Speexd = 100 -- ความเร็วของมึง
+             tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distancex/Speexd, Enum.EasingStyle.Linear)
+             tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = game:GetService("ReplicatedStorage")["Urban [Lv. 1750]"].HumanoidRootPart.CFrame})
+             tweenx:Play()
+             wait(Distancex/Speexd)
             end
          end
       end
