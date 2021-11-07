@@ -1937,7 +1937,37 @@ game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 end)
 end
 end)
-
+Main2:CreateToggle("Auto Raid Boss Hallow Scythe",function(value)
+_G.AutoFarmBossHallow = value
+while _G.AutoFarmBossHallow do wait()
+   pcall(function()
+       itemequip(weapongg)
+if game:GetService("Workspace").Enemies:FindFirstChild("Soul Reaper [Lv. 2100] [Raid Boss]") then
+   for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+      if string.find(v.Name , "Soul Reaper") then
+         repeat wait()
+            itemequip(weapongg)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,15,8)
+            v.HumanoidRootPart.Size = Vector3.new(40,40,40)
+            v.HumanoidRootPart.Transparency = 0.85
+            v.HumanoidRootPart.CanCollide = true
+            v.Humanoid.WalkSpeed = 0
+            v.Humanoid:ChangeState(11)
+            click()
+         until v.Humanoid.Health <= 0 or _G.AutoFarmBossHallow == false
+         end
+   end
+   else
+    local Distancex = (game:GetService("ReplicatedStorage"):FindFirstChild("Soul Reaper [Lv. 2100] [Raid Boss]").HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
+    local Speexd = 100 -- ความเร็วของมึง
+    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distancex/Speexd, Enum.EasingStyle.Linear)
+    tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = game:GetService("ReplicatedStorage"):FindFirstChild("Soul Reaper [Lv. 2100] [Raid Boss]").HumanoidRootPart.CFrame})
+    tweenx:Play()
+    wait(Distancex/Speexd)
+end
+   end)
+end
+end)
 local fruitname = {
     "Spike-Spike",
     "Chop-Chop",
@@ -2399,7 +2429,12 @@ while _G.RQIO do wait()
           equipgun()
           local magnitude = (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
           if magnitude < 1000 then
-         game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,30,0)
+            local Distancex = (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
+            local Speexd = 1000 -- ความเร็วของมึง
+            tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distancex/Speexd, Enum.EasingStyle.Linear)
+            tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = v.HumanoidRootPart.CFrame*CFrame.new(0,15,8)})
+            tweenx:Play()
+            wait(Distancex/Speexd)
          v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
          local args = {
             [1] = game:GetService("Players"):FindFirstChild(v.Name).Character.HumanoidRootPart.Position,
@@ -2422,6 +2457,8 @@ end)
 
 local updlog = DinoWindow:NewPage("Update-Log")
 local Home = updlog:NewSection("UpdateLog Section")
+Home:CreateLabel("Updated Dino Hub V0.897 : 11/7/2021") 
+Home:CreateLabel("Added [ + ] Auto Raid Boss Hallow Scythe")
 Home:CreateLabel("Updated Dino Hub V0.896 : 11/7/2021") 
 Home:CreateLabel("Added [ + ] Auto Store Fruit All")
 Home:CreateLabel("Updated Dino Hub V0.895")
@@ -2455,7 +2492,7 @@ game:GetService("RunService").Heartbeat:Connect(function()
     
 game:GetService("RunService").Heartbeat:Connect(function()
     pcall(function()
-    if _G.AutoFarm or _G.NoClip or _G.elitehunt or _G.Electro then
+    if _G.AutoFarm or _G.NoClip or _G.elitehunt or _G.Electro or _G.AutoFarmBossHallow then
         game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
     end
     end)
