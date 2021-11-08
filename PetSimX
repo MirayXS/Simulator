@@ -1,4 +1,6 @@
-
+_G.World = "Spawn"
+_G.Area = "Town"
+_G.Stop = false
 --Anti AFK stolen from infinite yield // the readily available old one :)
 local GC = getconnections or get_signal_cons
 if GC then
@@ -20,8 +22,10 @@ else
 end
 
 function FarmCoin(CoinID, PetID)
+    for i = 1,25 do
    game.workspace['__THINGS']['__REMOTES']["join coin"]:InvokeServer({[1] = CoinID, [2] = {[1] = PetID}})
    game.workspace['__THINGS']['__REMOTES']["farm coin"]:FireServer({[1] = CoinID, [2] = PetID})
+   end
 end
 
 function GetMyPets()
@@ -57,7 +61,12 @@ while wait() and not _G.Stop do
    local cointhiny = GetCoins(_G.World, _G.Area)
    local pethingy = GetMyPets()
    for i = 1, #cointhiny do
-       pcall(function() FarmCoin(cointhiny[i], pethingy[i%#pethingy+1]) end)
-       pcall(function() CollectOrbs() end)
+       pcall(function() 
+           FarmCoin(cointhiny[i], 
+              pethingy[i%#pethingy+1]) 
+           end)
+       pcall(function() 
+           CollectOrbs() 
+           end)
    end
 end
